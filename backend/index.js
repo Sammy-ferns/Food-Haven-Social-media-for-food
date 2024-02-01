@@ -2,8 +2,12 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import postRoutes from "./routes/posts.js";
 
 const app = express();
+
+// Using express middleware to connect the routes to the application
+app.use("/posts", postRoutes);
 
 // It is used to parse the incoming request body in JSON format.
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
