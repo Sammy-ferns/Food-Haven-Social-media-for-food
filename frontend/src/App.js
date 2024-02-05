@@ -1,54 +1,48 @@
+import React from "react";
 import {
   Box,
-  Heading,
-  Flex,
+  ChakraProvider,
+  Container,
+  Text,
   Image,
   Grid,
-  Container,
-  useColorModeValue,
-  ChakraProvider,
 } from "@chakra-ui/react";
-import foodHaven from "./images/foodHaven.avif";
+import pastelFood from "./images/pastelFood.png";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 // import { createStyles } from "./styles";
+import { customTheme } from "./styles";
 
 function App() {
   return (
-    <ChakraProvider>
-      <Container maxW="lg">
-        <Flex as="header" alignItems="center" justifyContent="space-between">
-          <Heading
-            as="h2"
-            size="lg"
-            textAlign="center"
-            justifySelf="center"
-            alignSelf="center"
-          >
-            Food Haven
-            <Image
-            src={foodHaven}
-            alt="Food Haven"
-            justifySelf="center"
-            alignSelf="center"
-          />
-          </Heading>
-          
-        </Flex>
-        <Grid
-          templateColumns="repeat(auto-fit, minmax(250px, 1fr))"
-          gap={3}
-          flexWrap="wrap"
-          justifyContent="center"
-          alignItems="center"
+    <ChakraProvider theme={customTheme}>
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            borderRadius: "15px",
+            m: "30px 0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            bg: "Pink",
+          }}
         >
-          <Grid item md={7} justifySelf="center" alignSelf="center">
+          <Text fontSize="xl" fontWeight="bold" color={"white"}>
+            Food Haven
+          </Text>
+          <Image src={pastelFood} alt="Food" height={10} sx={{ ml: "15px" }} />
+        </Box>
+      </Container>
+      <Container>
+        <Grid gap={3} spacing={4}>
+          <Box gridColumn="span 7" gridRow="1 / 3">
             <Posts />
-          </Grid>
-          <Grid item md={7} justifySelf="center" alignSelf="center">
+          </Box>
+          <Box gridColumn="span 5" gridRow="1 / 3">
             <Form />
-          </Grid>
+          </Box>
         </Grid>
+        {/* <IconAttribution /> */}
       </Container>
     </ChakraProvider>
   );
