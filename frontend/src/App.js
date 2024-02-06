@@ -43,7 +43,7 @@ function App() {
       <Container>
         <Grid gap={3} spacing={4}>
           <Box gridColumn="span 7" gridRow="1 / 3">
-            <Posts />
+            {/* <Posts /> */}
           </Box>
           <Box gridColumn="span 5" gridRow="1 / 3">
             <Form />

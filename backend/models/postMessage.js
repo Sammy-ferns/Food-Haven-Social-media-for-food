@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
+  creator: String,
   selectedFile: String,
-  name: String,
+  title: String,
   description: String,
   ingredients: String,
   recipe: String,
