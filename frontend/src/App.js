@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   ChakraProvider,
@@ -7,13 +7,20 @@ import {
   Image,
   Grid,
 } from "@chakra-ui/react";
+import { getPosts } from "./actions/posts";
 import pastelFood from "./images/pastelFood.png";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 // import { createStyles } from "./styles";
 import { customTheme } from "./styles";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   return (
     <ChakraProvider theme={customTheme}>
       <Container maxWidth="lg">

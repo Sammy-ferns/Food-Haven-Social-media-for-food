@@ -6,6 +6,9 @@ import postRoutes from "./routes/posts.js";
 
 const app = express();
 
+// It's a middleware that adds the necessary headers to the HTTP response to allow cross-origin requests.
+app.use(cors());
+
 // Using express middleware to connect the routes to the application
 app.use("/posts", postRoutes);
 
@@ -14,9 +17,6 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
 // The urlencoded parser specifically handles the parsing of data sent through HTML form submissions.
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-
-// It's a middleware that adds the necessary headers to the HTTP response to allow cross-origin requests.
-app.use(cors());
 
 // MongoDB Atlas connection string
 
